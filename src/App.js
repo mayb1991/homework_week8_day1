@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom'
-import About from './About';
-import Contact from './Contact'
-import ToDoItems from './News'
-import Home from './Home'
+import About from './views/About';
+import Contact from './views/Contact'
+import ToDoItems from './views/News'
+import Home from './views/Home'
+import UserSignUp from './views/UserSignUp';
 
 
 export default class App extends Component {
@@ -58,17 +59,17 @@ delToDo(key){
   })
 }
 
-  updateToDo(text,key){
-    const  updateItem = this.state.toDoList;
-    updateItem.map(ToDo => {
-      if(ToDo.key === key){
-        ToDo.text = text;
-      }
-    })
-    this.state({
-      updateItem: updateItem
-    })
-  }
+updateToDo(text, key) {
+  const updateItem = this.state.toDoList;
+  updateItem.map(ToDo => {
+    if (ToDo.key === key) {
+      ToDo.text = text;
+    }
+  })
+  this.state({
+    updateItem: updateItem
+  })
+}
 
   render() {
     return (
@@ -81,19 +82,8 @@ delToDo(key){
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact email ={this.state.email} bus ={this.state.businesses}/>}/>
           <Route path='/news' element={<ToDoItems/>}/>
+          <Route path='/signup' element={<UserSignUp/>}/>
         </Routes>
-
-        <header>
-                    <form id="to_do_form" onSubmit={this.addToDo}>
-                        <input type="text" placeholder='Enter anything you need todo' value={this.state.currentToDo} 
-                        onChange={this.toDoInput}></input>
-                        <button type='submit'>Add To Do</button>
-                    </form>
-                    <p>{this.state.toDoList.text}</p>
-                    <ToDoItems toDoList = {this.state.toDoList} delToDo = {this.state.delToDo}/>
-                </header>
-                
-
       </div>
     )
   }
