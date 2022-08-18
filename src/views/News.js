@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
-function ToDoItems(props){
+const ToDoItems= (props) =>{
     const toDoList1 = props.toDoList1;
     const listItems = (toDoList1 || []).map(toDoItem =>
    {
@@ -23,7 +23,7 @@ function ToDoItems(props){
     return <div>
         <header>
             <form id="to_do_form" onSubmit={this.addToDo}>
-                <input type="text" placeholder='Enter anything you need todo' value={this.state.currentToDo} 
+                <input type="text" placeholder='Enter anything you need todo' value={this.currentToDo} 
                 onChange={this.toDoInput}></input>
                 <button type='submit'>Add To Do</button>
             </form>
