@@ -7,14 +7,18 @@ export default class UserSignUp extends Component {
         if (e.target.password.value !== e.target.confirmPassword.value){ 
             return
         }
-
-        const res = await fetch('http://localhost:5000/api/signup', {mode:'cors'},{
+                                                                    // With this added to the code it gets rid of the access to fetch but now with it added it causes a 400 error
+        const res = await fetch('http://localhost:5000/api/signup',{mode:'cors'},{
             method: "POST", 
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "http://localhost:5000" 
             },
             body: JSON.stringify({
+                first_name: e.target.firstName.value,
+                last_name: e.target.lastName.value,
                 username: e.target.username.value,
+                phone: e.target.phoneNumber.value,
                 email: e.target.email.value,
                 password: e.target.password.value
             })
@@ -29,19 +33,35 @@ export default class UserSignUp extends Component {
             <form className='col-4' onSubmit={(e)=>{this.sendSignUpInfo(e)}}>
 
                 <div className="mb-3">
+                    <label className="form-label">First Name</label>
+                    <input type="text" className="form-control" name='firstName'/>
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Last Name</label>
+                    <input type="text" className="form-control" name='lastName'/>
+                </div>
+
+                <div className="mb-3">
                     <label className="form-label">Username</label>
                     <input type="text" className="form-control" name='username'/>
                 </div>
-
+                
+                <div className="mb-3">
+                    <label className="form-label">Phone Number</label>
+                    <input type="text" className="form-control" name='phoneNumber'/>
+                </div>
 
                 <div className="mb-3">
                     <label className="form-label">Email address</label>
                     <input type="email" className="form-control" name='email'/>
                 </div>
+
                 <div className="mb-3">
                     <label className="form-label">Password</label>
                     <input type="password" className="form-control" name='password'/>
                 </div>
+
                 <div className="mb-3">
                     <label className="form-label">Confirm Password</label>
                     <input type="password" className="form-control" name='confirmPassword'/>

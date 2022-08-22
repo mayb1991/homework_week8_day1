@@ -15,7 +15,7 @@ export default class ShoppingMall extends Component {
     }
 
     getProducts = async () => {
-        const res = await fetch('http://127.0.0.1:5000/api/shop');
+        const res = await fetch('http://127.0.0.1:5000/api/products');
         const data = await res.json();
         this.setState({ products: data.products })
 

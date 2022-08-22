@@ -14,7 +14,7 @@ export default class ShopProduct extends Component {
             
         },
         body: JSON.stringify({
-            title: this.props.itemInfo.title
+            title: this.props.productInfo.title
         })
     });
     const data = await res.json();
@@ -22,13 +22,13 @@ export default class ShopProduct extends Component {
    
 }
   render() {
-    const item = this.props.itemInfo;
+    const item = this.props.productInfo;
 
     
     return (
       <div className='container'>
         <div className="card m-3 pb-0 w-25 " >
-        <div className="image"><img className="card-img-top"  src={item.img_url} alt="..." /></div>
+        <div className="image"><img className="card-img-top"  src={item.image_url} alt="..." /></div>
       
         <div className="card-body bg-dark text-light" styles={{"color": "white"}}>
         <h5 className="card-title" ><b>{item.title}</b></h5>
