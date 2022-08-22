@@ -44,7 +44,7 @@ export default class App extends Component {
           <Route path='/signup' element={<UserSignUp />} />
           <Route path='/login' element={<Login login={this.logMeIn} />} />
           <Route path='/shopping' element={<ShoppingMall user={this.state.user} />} />
-          <Route path='/productInfo/:itemId' element={<SelectedProduct />} />
+          <Route path='/productInfo/:productId' element={<SelectedProduct />} />
           <Route path='/cart' element={<ShoppingCart user={this.state.user}/>} />
 
         </Routes>

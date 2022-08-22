@@ -9,7 +9,7 @@ export default class ShopProduct extends Component {
     const res = await fetch(`http://127.0.0.1:5000/api/cart/add`, {
         method: "POST",
         headers: {
-            Authorization: `Bearer ${this.props.user.token}`,
+            // Authorization: `Bearer ${this.props.user.token}`,
             'Content-Type': 'application/json'
             
         },
