@@ -23,6 +23,12 @@ export default class Navbar extends Component {
             <Link className="nav-link" to="/news">News</Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link" to="/shopping">Shopping</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/cart">Shopping Cart</Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to="/todo">To Do List</Link>
           </li>
           <li className="nav-item">

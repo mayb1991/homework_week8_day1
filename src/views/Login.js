@@ -27,18 +27,18 @@ export default class Login extends Component {
 
     };
 
-    sendBasicAuth = async (e) => {
-        e.preventDefault();
-        const res = await fetch('http://localhost:5000/token', {
-            method: "POST",
-            headers: { Authorization: `Bearer ${btoa(e.target.username.value + ":" + e.target.password.value)}` }
-        });
-        const data = await res.json();
-        console.log(data)
-        if (data.status === 'ok') {
-            this.props.logMeIn(data.data)
-        }
-    };
+    // sendBasicAuth = async (e) => {
+    //     e.preventDefault();
+    //     const res = await fetch('http://localhost:5000/token', {
+    //         method: "POST",
+    //         headers: { Authorization: `Bearer ${btoa(e.target.username.value + ":" + e.target.password.value)}` }
+    //     });
+    //     const data = await res.json();
+    //     console.log(data)
+    //     if (data.status === 'ok') {
+    //         this.props.logMeIn(data.data)
+    //     }
+    // };
 
     render() {
         return (

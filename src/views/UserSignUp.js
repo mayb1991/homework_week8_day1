@@ -8,8 +8,8 @@ export default class UserSignUp extends Component {
             return
         }
 
-        const res = await fetch('http://localhost:5000/api/signup', {
-            method: "POST",
+        const res = await fetch('http://localhost:5000/api/signup', {mode:'cors'},{
+            method: "POST", 
             headers: {
                 "Content-Type": 'application/json'
             },
