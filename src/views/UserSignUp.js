@@ -8,11 +8,11 @@ export default class UserSignUp extends Component {
             return
         }
                                                                     // With this added to the code it gets rid of the access to fetch but now with it added it causes a 400 error
-        const res = await fetch('http://localhost:5000/api/signup',{mode:'cors'},{
+        const res = await fetch('http://127.0.0.1:5000/api/signup',{
             method: "POST", 
             headers: {
                 "Content-Type": 'application/json',
-                "Access-Control-Allow-Origin": "http://localhost:5000" 
+                "Access-Control-Allow-Origin": "http://localhost:5000" // add this and that got the
             },
             body: JSON.stringify({
                 first_name: e.target.firstName.value,
